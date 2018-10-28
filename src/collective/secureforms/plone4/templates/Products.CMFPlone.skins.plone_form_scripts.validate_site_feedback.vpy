@@ -31,6 +31,10 @@ if not (subject and subject.strip()):
 if not (message and message.strip()):
     state.setError('message', _(u'Please enter a message'), 'message_required')
 
+if not(context.restrictedTraverse('@@captcha').verify()):
+    state.setError(
+        'captcha', _(u'Please confirm the security check'), 'captcha_required')
+
 if state.getErrors():
     context.plone_utils.addPortalMessage(
         _(u'Please correct the indicated errors.'), 'error')
