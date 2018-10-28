@@ -8,6 +8,8 @@
 
   <i18n:registerTranslations directory="locales" />
 
+  <include package=".plone4" zcml:condition="not-have plone-5" />
+
   <genericsetup:registerProfile
       name="default"
       title="collective.secureforms"
