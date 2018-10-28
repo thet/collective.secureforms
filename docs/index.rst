@@ -1,5 +1,0 @@
-======================
-collective.secureforms
-======================
-
-User documentation
