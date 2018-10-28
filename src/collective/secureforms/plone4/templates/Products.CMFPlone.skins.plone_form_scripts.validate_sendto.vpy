@@ -31,7 +31,8 @@ if not plone_utils.validateSingleEmailAddress(send_from_address):
                    _(u'Please submit a valid email address.'),
                    'email_required')
 
-if not(context.restrictedTraverse('@@captcha').verify()):
+if bool(context.portal_membership.isAnonymousUser())\
+        and not context.restrictedTraverse('@@captcha').verify():
     state.setError('captcha',
                    _(u'Please confirm the security check'),
                    'captcha_required')

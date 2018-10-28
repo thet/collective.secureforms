@@ -164,6 +164,7 @@
                 </div>
 
                 <div class="field"
+                     tal:condition="context/@@plone_portal_state/anonymous"
                      tal:define="error errors/captcha|nothing"
                      tal:attributes="class python:test(error, 'field error', 'field')">
 
